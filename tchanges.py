@@ -18,7 +18,7 @@ def main(teamcity,tuser,tpass,tbuildtype,jira,juser,jpass):
             try:
                 r = requests.get("%s/rest/api/latest/issue/%s"%(jira,task),auth=(juser,jpass),headers=headers)
                 summary = json.loads(r.text)["fields"]["summary"]
-                print "%s: %s"%(task,summary)
+                print ("%s: %s"%(task,summary)).encode('utf8')
             except: pass
     except:pass
 
